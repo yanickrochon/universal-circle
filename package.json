@@ -1,0 +1,18 @@
+{
+  "name": "universal-circle",
+  "version": "0.0.1",
+  "description": "Circle math",
+  "main": "lib/circle.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "circle",
+    "math"
+  ],
+  "author": "Yanick Rochon <yanick.rochon@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.4.3"
+  }
+}
