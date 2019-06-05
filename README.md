@@ -26,6 +26,8 @@ Everything to know about circles.
 * **Circle.Segment(chordLength, height)**
 * **Circle.Segment.height(radius, angle)** *{Number}*
 * **Circle.Segment.chordLength(radius, angle)** *{Number}*
+* **segment.chordLength** *{Number}*
+* **segment.height** *{Number}*
 * **segment.angle()** *{Number}*
 * **segment.arcLength()** *{NUmber}*
 * **segment.circleRadius()** *{Number}*

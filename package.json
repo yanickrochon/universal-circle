@@ -1,6 +1,6 @@
 {
   "name": "universal-circle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Circle math",
   "main": "lib/circle.js",
   "scripts": {
@@ -13,6 +13,6 @@
   "author": "Yanick Rochon <yanick.rochon@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "jest": "^22.4.3"
+    "jest": "^24.8.0"
   }
 }
