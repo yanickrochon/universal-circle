@@ -9,6 +9,19 @@ describe('Testing Circle', () => {
   });
 
 
+
+  describe('Testing Angle', () => {
+
+    it('should create angle from radian', () => {
+      const rad = 1.5;
+      const a = new Circle.Angle(Circle.Angle.degrees(rad));
+
+      expect(Circle.Angle.radians(a.degrees)).toBeCloseTo(rad, 2);
+    });
+
+  });
+
+
   describe('Testing Segment', () => {
 
     it('should create circle from segment', () => {

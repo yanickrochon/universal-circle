@@ -1,6 +1,6 @@
 {
   "name": "universal-circle",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Circle math",
   "main": "lib/circle.js",
   "scripts": {

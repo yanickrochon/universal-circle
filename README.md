@@ -16,8 +16,9 @@ Everything to know about circles.
 ### CircleAngle
 
 * **Circle.Angle(degrees)**
+* **Circle.Angle.degrees(radians)** *{Number}*
+* **Circle.Angle.radians(degrees)** *{Number}*
 * **angle.degrees** *{Number}*
-* **angle.toRadian()** *{Number}*
 * **angle.toSegmentFromHeight(height)** *{CircleSegment}*
 * **angle.toSegmentFromChord(chordLength)** *{CircleSegment}*
 
