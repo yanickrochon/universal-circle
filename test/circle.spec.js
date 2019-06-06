@@ -8,6 +8,12 @@ describe('Testing Circle', () => {
     expect(c.circumference()).toBeCloseTo(62.831, 2);
   });
 
+  it('should return area', () => {
+    const c = new Circle(1);
+
+    expect(c.area()).toBeCloseTo(Math.PI, 2);
+  });
+
 
 
   describe('Testing Angle', () => {
