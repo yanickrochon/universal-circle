@@ -14,15 +14,54 @@ describe('Testing Circle', () => {
     expect(c.area()).toBeCloseTo(Math.PI, 2);
   });
 
+  it('should return a segment from height', () => {
+    const c = new Circle(1);
+    const s = c.toSegmentFromHeight(0.334);
+
+    expect(s).toBeInstanceOf(Circle.Segment);
+    expect(s.chordLength).toBeCloseTo(1.492, 2);
+    expect(s.circleRadius()).toBeCloseTo(1, 2);
+  });
+
+  it('should return a segment from chord', () => {
+    const c = new Circle(1);
+    const s = c.toSegmentFromChord(1.492);
+
+    expect(s).toBeInstanceOf(Circle.Segment);
+    expect(s.height).toBeCloseTo(0.334, 2);
+    expect(s.circleRadius()).toBeCloseTo(1, 2);
+  });
+
 
 
   describe('Testing Angle', () => {
 
-    it('should create angle from radian', () => {
-      const rad = 1.5;
-      const a = new Circle.Angle(Circle.Angle.degrees(rad));
+    it('should convert degrees to radians', () => {
+      const deg = 200.00;
+      const rad = Circle.Angle.radians(deg);
+      const a = new Circle.Angle(rad);
+      
+      expect(a.degrees()).toBeCloseTo(deg, 2);
+    });
 
-      expect(Circle.Angle.radians(a.degrees)).toBeCloseTo(rad, 2);
+    it('should create segment from height', () => {
+      const rad = 1.75;
+      const h = 5.35;
+      const a = new Circle.Angle(rad);
+      const s = a.toSegmentFromHeight(h);
+
+      expect(s).toBeInstanceOf(Circle.Segment);
+      expect(s.toAngle().angle).toBeCloseTo(rad, 2);
+    });
+
+    it('should create segment from chord', () => {
+      const rad = 2.77;
+      const w = 2.59;
+      const a = new Circle.Angle(rad);
+      const s = a.toSegmentFromChord(w);
+
+      expect(s).toBeInstanceOf(Circle.Segment);
+      expect(s.toAngle().angle).toBeCloseTo(rad, 2);
     });
 
   });
@@ -30,11 +69,46 @@ describe('Testing Circle', () => {
 
   describe('Testing Segment', () => {
 
+    it('should return height from radius and angle', () => {
+      const r = 15;
+      const a = Circle.Angle.radians(45);
+      const h = Circle.Segment.height(r, a);
+
+      expect(h).toBeCloseTo(1.14, 2);
+    });
+
+    it('should return chord length from radius and angle', () => {
+      const r = 15;
+      const a = Circle.Angle.radians(45);
+      const w = Circle.Segment.chordLength(r, a);
+
+      expect(w).toBeCloseTo(11.48, 2);
+    });
+
     it('should create circle from segment', () => {
       const s = new Circle.Segment(40, 14);
       const c = s.toCircle();
 
       expect(c.radius).toBeCloseTo(21.2857, 3);
+    });
+
+    it('should calculate the circle radius', () => {
+      [
+        [30.00, new Circle.Segment(36, 6)],
+        [11.22, new Circle.Segment(22, 9)],
+      ].forEach(([r, s]) => expect(s.circleRadius()).toBeCloseTo(r, 2));
+    });
+
+    it('should calculate area', () => {
+      const s = new Circle.Segment(7.74596, 3);
+
+      expect(s.area()).toBeCloseTo(17.22, 2);
+    });
+
+    it('should calculate arc length', () => {
+      const s = new Circle.Segment(8.23, 1.34);
+
+      expect(s.arcLength()).toBeCloseTo(8.80, 2);
     });
 
     it('should calculate segment height', () => {
